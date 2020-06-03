@@ -1,7 +1,8 @@
+import { withRouter } from 'next/router';
 import { getSeoData } from '../store/actions/seo';
 import Layout from '../components/Layout/Layout';
 
-const Index = ({ meta }) => {
+const Main = ({ meta }) => {
   return <Layout meta={meta}>
     <div>
       Home
@@ -19,4 +20,4 @@ export async function getStaticProps() {
   }
 };
 
-export default Index;
+export default withRouter(Main);
