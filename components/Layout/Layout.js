@@ -4,7 +4,7 @@ import SeoTags from '../SeoTags/SeoTags';
 
 const Layout = ({children, meta, error, tabName, gameId}) => {
   return <div className="Layout">
-    {!error && <SeoTags meta={meta}/>}
+    {!error && meta && <SeoTags meta={meta}/>}
     <Header
       tabName={tabName}
       gameId={gameId}
