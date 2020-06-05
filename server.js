@@ -8,7 +8,7 @@ const Koa = require('koa');
 const Router = require('koa-router');
 
 const dev = process.env.NODE_ENV == 'development';
-const app = next({ dev, dir: 'app' });
+const app = next({ dev, dir: './' });
 const handle = app.getRequestHandler();
 
 app.prepare()
