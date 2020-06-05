@@ -1,10 +1,7 @@
-require("dotenv").config();
-
 // for HTTPS calls
 const tls = require('tls')
 tls.DEFAULT_ECDH_CURVE = 'auto'
 
-const config = require('config');
 const next = require('next');
 
 const Koa = require('koa');
@@ -19,13 +16,6 @@ app.prepare()
     const koa = new Koa();
     const router = new Router();
 
-    config.get('routes.root').forEach((rootPage) => {
-      router.get(`${rootPage.source}`, async ctx => {
-        await app.render(ctx.req, ctx.res, `${rootPage.target}`); 
-        ctx.respond = false;
-      });
-    });
-
     router.get('*', async ctx => {
       await handle(ctx.req, ctx.res);
       ctx.respond = false;
@@ -38,8 +28,7 @@ app.prepare()
 
     koa.use(router.routes());
     
-    const port = config.get('server.port');
     koa.listen(port, () => {
-      console.log(`> Ready on http://localhost:${port}`)
+      console.log(`> Ready on http://localhost:3001`)
     })
   });
