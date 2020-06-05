@@ -10,4 +10,6 @@ rsync -a /var/www/app/src/static/assets /app/static
 # Learn more: https://nextjs.org/telemetry
 npx next telemetry disable
 
-pm2-runtime start pm2.config.json
+# pm2-runtime start pm2.config.json
+
+npm run start
