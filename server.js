@@ -28,7 +28,7 @@ app.prepare()
 
     koa.use(router.routes());
     
-    koa.listen(port, () => {
+    koa.listen(3001, () => {
       console.log(`> Ready on http://localhost:3001`)
     })
   });
